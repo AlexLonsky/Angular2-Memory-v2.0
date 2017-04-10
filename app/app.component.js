@@ -22,6 +22,7 @@ var AppComponent = (function () {
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.httpService.getCards().subscribe(function (data) { return _this.cards = data.json(); });
+        console.log('выгрузка');
     };
     AppComponent.prototype.newGame = function (arr) {
         var el = document.querySelectorAll('.show');
@@ -32,7 +33,6 @@ var AppComponent = (function () {
             this.winCard[0].classList.remove('flip');
         }
         var newG = document.querySelectorAll('.cardShow');
-        console.log(newG);
         for (var y = 0; y < newG.length; y++) {
             newG[y].classList.remove('cardShow');
             newG[y].classList.add('card');
@@ -44,6 +44,9 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.state = function (item, i) {
         var _this = this;
+        console.log(this.cards);
+        // "card":"icon-home2"
+        // this.cards.push({'card' : 'icon-home2'})
         var el = document.getElementsByName('item');
         if (el[i].classList.contains('card')) {
             el[i].classList.add('flip');
@@ -61,28 +64,28 @@ var AppComponent = (function () {
                 this.winCard[1].classList.remove('flip');
                 this.winCard[1].classList.add('show');
                 this.winCard = [];
-                setTimeout(function () { _this.visibility = !_this.visibility; }, 700);
+                this.visibility = !this.visibility;
             }
             else {
                 setTimeout(function () {
                     if (_this.winCard != 0) {
                         _this.winCard[0].classList.remove('flip');
-                        _this.winCard[1].classList.remove('flip');
                         _this.winCard[0].classList.remove('cardShow');
                         _this.winCard[0].classList.add('card');
+                        _this.winCard[1].classList.remove('flip');
                         _this.winCard[1].classList.remove('cardShow');
                         _this.winCard[1].classList.add('card');
                         _this.visibility = !_this.visibility;
                     }
                     _this.winCard = [];
-                }, 1000);
+                }, 400);
             }
             this.searchNumber = [];
         }
         var win = document.querySelectorAll('.cardShow');
-        console.log(win.length);
         if (win.length == 12) {
-            alert('You win');
+            // alert('You win')
+            this.lvl = 1;
         }
     };
     ;

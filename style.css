@@ -43,6 +43,6 @@
 body{
     text-align: center;
     overflow: hidden;
-    background: url("app/img/bg.jpg");
-    color: burlywood;
+    color: #3e3e3e;
+    margin: 0;
 }

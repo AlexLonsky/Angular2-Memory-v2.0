@@ -10,11 +10,18 @@
         <div class="back"><span class='{{item.card}} i-b'></span></div>
     </div>
 </div>
-
+    <div [ngSwitch]="lvl">
+        <div class="b-popup" id="popup1" *ngSwitchCase="1">
+            <div class="b-popup-content" >
+                Go to next lvl?
+                <button >next lvl</button>
+            </div>
+        </div>
+    </div>
 
 </div>
 
-<div style="" [ngClass]="{invisible: visibility}" class="unvisible"></div>
+<div style="" [ngClass]="{invisible: visibility}" class="unvisible" ></div>
 <footer>
     <div class="score"><span>{{count}}</span></div>
     <div><h3 class="moves">Moves</h3></div>

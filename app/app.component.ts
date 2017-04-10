@@ -9,6 +9,7 @@ import {Cards} from './cards'
     providers:[HttpService]
 })
 export class AppComponent implements OnInit{
+    lvl:number;
     cards:Cards[] = [];
     count:number = 0;
     searchNumber:any = [];
@@ -16,8 +17,11 @@ export class AppComponent implements OnInit{
     visibility: boolean = true;
     constructor(private httpService: HttpService){}
     ngOnInit(){
-        this.httpService.getCards().subscribe((data:Response)=>this.cards = data.json());
+        this.httpService.getCards().subscribe((data:Response)=>this.cards = data.json())
+        console.log('выгрузка')
+
     }
+
     newGame(arr) {
        let el = document.querySelectorAll('.show');
         for(let i = 0; i < el.length; i++){
@@ -28,7 +32,6 @@ export class AppComponent implements OnInit{
         }
 
         let newG = document.querySelectorAll('.cardShow');
-        console.log(newG);
         for(let y = 0; y < newG.length; y++){
             newG[y].classList.remove('cardShow');
             newG[y].classList.add('card')
@@ -39,6 +42,9 @@ export class AppComponent implements OnInit{
         this.searchNumber = [];
     }
     state(item,i){
+        console.log(this.cards)
+        // "card":"icon-home2"
+        // this.cards.push({'card' : 'icon-home2'})
         let el:any = document.getElementsByName('item');
         if(el[i].classList.contains('card')){
             el[i].classList.add('flip');
@@ -56,28 +62,28 @@ export class AppComponent implements OnInit{
                 this.winCard[1].classList.remove('flip');
                 this.winCard[1].classList.add('show');
                 this.winCard = [];
-                setTimeout(()=>{this.visibility=!this.visibility;},700)
+                    this.visibility=!this.visibility;
             }
             else{
                 setTimeout(() => {
                     if(this.winCard != 0){
                         this.winCard[0].classList.remove('flip');
-                        this.winCard[1].classList.remove('flip');
-                        this.winCard[0].classList.remove('cardShow')
+                        this.winCard[0].classList.remove('cardShow');
                         this.winCard[0].classList.add('card');
-                        this.winCard[1].classList.remove('cardShow')
+                        this.winCard[1].classList.remove('flip');
+                        this.winCard[1].classList.remove('cardShow');
                         this.winCard[1].classList.add('card');
                         this.visibility=!this.visibility;
                     }
                     this.winCard = [];
-                }, 1000);
+                }, 400);
             }
         this.searchNumber = [];
     }
-    let win =document.querySelectorAll('.cardShow')
-        console.log(win.length)
+    let win =document.querySelectorAll('.cardShow');
         if(win.length == 12){
-        alert('You win')
+        // alert('You win')
+            this.lvl=1;
         }
 };
 
