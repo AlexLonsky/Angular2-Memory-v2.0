@@ -1,33 +1,15 @@
-body{
-    text-align: center;
-}
-header{
-    border-bottom: 4px solid #3e3e3e;
-}
-footer{
-    border-top: 4px solid #3e3e3e;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
-}
-div .card{
+ div.card{
     width: 110px;
     height: 174px;
     float: left;
     margin: 10px;
+
 }
 div .cardShow{
     width: 110px;
     height: 173px;
     float: left;
     margin: 10px;
-}
-:host{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
 }
 .wrapper{
     flex: 1;
@@ -110,42 +92,6 @@ div .cardShow{
 .show{
     transform: rotateY( 180deg );
 }
-.score{
-    color: #3e3e3e;
-    font-family: "Bungee", cursive;
-    position: absolute;
-    bottom: 100%;
-    height: 49px;
-    width: 105px;
-    font-size: 20px;
-    border-radius: 70px 70px 0 0;
-    z-index: -1;
-    left: 0;
-    right: 0;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #3e3e3e;
-}
-.moves{
-    margin: 0;
-    font-size: 25px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-figure {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: block;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
-    margin: 0;
-}
 .back {
     background: white;
     position: absolute;
@@ -171,25 +117,6 @@ figure {
     height: 173px;
     float: left;
 }
-.newGame{
-    position: absolute;
-    height: 49px;
-    background: #fff;
-    width: 105px;
-    font-size: 17px;
-    text-transform: uppercase;
-    border-radius: 0px 0px 70px 70px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #3e3e3e;
-    border-top: 4px solid #3e3e3e;
-    cursor: pointer;
-}
-
 .i-f{
     font-size: 60px;
     color: #3e3e3e;
@@ -201,48 +128,4 @@ figure {
     color: #3e3e3e;
     position: relative;
     top: 35px;
-}
-.b-popup{
-    width:100%;
-    min-height:100%;
-    background-color: rgba(0,0,0,0.5);
-    overflow:hidden;
-    position:fixed;
-    top:0px;
-    left: 0;
-    z-index: 105;
-    opacity: 1;
-    animation: opacityToggle 1.5s;
-}
-@keyframes opacityToggle{
-    0%{
-        opacity: 0.1;
-        left:-100%;
-    }
-    25%{
-        left:100%;
-        opacity: 0.2;
-    }
-    50%{
-        opacity: 0.3;
-
-
-    }
-    75%{
-        left:0;
-        opacity: 0.5;
-    }
-    100%{
-        opacity: 1;
-
-    }
-}
-.b-popup .b-popup-content{
-    margin: 20% auto 0px auto;
-    width: 615px;
-    height: 279px;
-    padding: 10px;
-    background-color: #c5c5c5;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px #000;
 }

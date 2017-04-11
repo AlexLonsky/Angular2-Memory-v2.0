@@ -4,12 +4,12 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
-import {Header} from './header-component/header.component';
 import {HttpService} from './http.service';
+import {LvlSecond} from './lvl-2/lvl-second.component'
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule],
-    declarations: [AppComponent, Header ],
+    declarations: [AppComponent, LvlSecond ],
     providers:[HttpService],
     bootstrap: [AppComponent],
 

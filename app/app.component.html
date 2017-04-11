@@ -3,19 +3,21 @@
     <h1>MEMORY GAME</h1>
     <button (click)="newGame(cards)" class="newGame">New Game </button>
 </header>
-<div class="wrapper">
-<div class="center">
+<div class="wrapper" [ngSwitch]="lvl">
+<div class="center" *ngSwitchCase="0" >
     <div  *ngFor="let item of cards; let i = index" name="item" id="item"   (click)="state(item, i)" class="card" >
         <div class="front "><span class="icon-magic-wand i-f"></span></div>
         <div class="back"><span class='{{item.card}} i-b'></span></div>
     </div>
 </div>
+    <lvl-second *ngSwitchCase="2"></lvl-second>
     <div [ngSwitch]="lvl">
         <div class="b-popup" id="popup1" *ngSwitchCase="1">
             <div class="b-popup-content" >
                 Go to next lvl?
-                <button >next lvl</button>
+                <button (click)="nextLvl()">next lvl</button>
             </div>
+
         </div>
     </div>
 </div>

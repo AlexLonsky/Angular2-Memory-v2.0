@@ -15,25 +15,38 @@ var AppComponent = (function () {
         this.httpService = httpService;
         this.count = 0;
         this.searchNumber = [];
-        this.winCard = [];
+        this.visibility = true;
         this.cards = [];
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.httpService.getCards().subscribe(function (data) { return _this.cards = data.json(); });
-        this.searchNumber = this.httpService.searchNumber;
-        this.winCard = this.httpService.winCard;
-        this.visibility = this.httpService.visibility;
+        this.httpService.getCardsLvl1().subscribe(function (data) { return _this.cards = data.json(); });
+        this.lvl = this.httpService.lvl;
     };
     AppComponent.prototype.newGame = function (arr) {
         this.httpService.createNewGame(arr);
     };
     AppComponent.prototype.state = function (item, i) {
+        var _this = this;
+        if (this.searchNumber[0] != item) {
+            this.searchNumber.push(item);
+        }
         this.httpService.clickCard(item, i);
+        if (this.searchNumber.length == 2) {
+            this.visibility = !this.visibility;
+            setTimeout(function () {
+                _this.visibility = !_this.visibility;
+                _this.searchNumber = [];
+            }, 400);
+        }
         this.lvl = this.httpService.lvl;
         this.count = this.httpService.count;
     };
     ;
+    AppComponent.prototype.nextLvl = function () {
+        this.httpService.newLvl();
+        this.lvl = this.httpService.lvl;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app-game',
@@ -45,5 +58,4 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
-;
 //# sourceMappingURL=app.component.js.map

@@ -13,14 +13,17 @@ var http_1 = require('@angular/http');
 var HttpService = (function () {
     function HttpService(http) {
         this.http = http;
+        this.lvl = 0;
         this.count = 0;
         this.searchNumber = [];
         this.winCard = [];
-        this.visibility = true;
         this.cards = [];
     }
-    HttpService.prototype.getCards = function () {
-        return this.http.get('cards.json');
+    HttpService.prototype.getCardsLvl1 = function () {
+        return this.http.get('cardsLvl1.json');
+    };
+    HttpService.prototype.getCardsLvl2 = function () {
+        return this.http.get('cardsLvl2.json');
     };
     HttpService.prototype.createNewGame = function (arr) {
         var el = document.querySelectorAll('.show');
@@ -53,7 +56,6 @@ var HttpService = (function () {
             this.winCard.push(el[i]);
         }
         if (this.searchNumber.length == 2) {
-            this.visibility = !this.visibility;
             this.count++;
             if (this.searchNumber[0].card == this.searchNumber[1].card) {
                 this.winCard[0].classList.remove('flip');
@@ -61,7 +63,6 @@ var HttpService = (function () {
                 this.winCard[1].classList.remove('flip');
                 this.winCard[1].classList.add('show');
                 this.winCard = [];
-                this.visibility = !this.visibility;
             }
             else {
                 setTimeout(function () {
@@ -72,7 +73,6 @@ var HttpService = (function () {
                         _this.winCard[1].classList.remove('flip');
                         _this.winCard[1].classList.remove('cardShow');
                         _this.winCard[1].classList.add('card');
-                        _this.visibility = !_this.visibility;
                     }
                     _this.winCard = [];
                 }, 400);
@@ -84,6 +84,9 @@ var HttpService = (function () {
             alert('You win');
             this.lvl = 1;
         }
+    };
+    HttpService.prototype.newLvl = function () {
+        this.lvl = 2;
     };
     HttpService = __decorate([
         core_1.Injectable(), 

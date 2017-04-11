@@ -15,23 +15,35 @@ export class AppComponent implements OnInit{
     lvl:number;
     count:number = 0;
     searchNumber:any = [];
-    winCard:any = [];
-    visibility: boolean;
+    visibility: boolean=true;
     constructor(private httpService: HttpService){
         this.cards=[];
     }
     ngOnInit(){
-        this.httpService.getCards().subscribe((data:Response)=>this.cards = data.json());
-        this.searchNumber=this.httpService.searchNumber;
-        this.winCard=this.httpService.winCard;
-        this.visibility=this.httpService.visibility;
+        this.httpService.getCardsLvl1().subscribe((data:Response)=>this.cards = data.json());
+        this.lvl=this.httpService.lvl;
     }
+
     newGame(arr) {
         this.httpService.createNewGame(arr);
     }
     state(item,i){
+        if(this.searchNumber[0] != item){
+            this.searchNumber.push(item);
+        }
         this.httpService.clickCard(item,i);
+        if(this.searchNumber.length==2){
+            this.visibility=!this.visibility;
+            setTimeout(() => {
+                this.visibility=!this.visibility;
+                this.searchNumber=[];
+            }, 400);
+        }
         this.lvl=this.httpService.lvl;
         this.count=this.httpService.count;
-};
-};
+    };
+    nextLvl(){
+        this.httpService.newLvl();
+        this.lvl=this.httpService.lvl;
+    }
+}

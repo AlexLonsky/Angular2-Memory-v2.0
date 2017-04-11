@@ -1,19 +1,23 @@
-import {Injectable} from '@angular/core';
+import {Injectable, } from '@angular/core';
 import {Http} from '@angular/http';
 
 
 
 @Injectable()
 export class HttpService{
-    lvl:number;
+    lvl:number=0;
     count:number = 0;
     searchNumber:any = [];
     winCard:any = [];
-    visibility: boolean = true;
     cards=[];
+
     constructor(private http: Http){}
-    getCards(){
-        return this.http.get('cards.json')
+
+    getCardsLvl1(){
+        return this.http.get('cardsLvl1.json')
+    }
+    getCardsLvl2(){
+        return this.http.get('cardsLvl2.json')
     }
     createNewGame(arr){
         let el = document.querySelectorAll('.show');
@@ -45,7 +49,6 @@ export class HttpService{
             this.winCard.push(el[i]);
         }
         if(this.searchNumber.length == 2){
-            this.visibility=!this.visibility;
             this.count++;
             if(this.searchNumber[0].card == this.searchNumber[1].card){
                 this.winCard[0].classList.remove('flip');
@@ -53,7 +56,6 @@ export class HttpService{
                 this.winCard[1].classList.remove('flip');
                 this.winCard[1].classList.add('show');
                 this.winCard = [];
-                this.visibility=!this.visibility;
             }
             else{
                 setTimeout(() => {
@@ -64,7 +66,6 @@ export class HttpService{
                         this.winCard[1].classList.remove('flip');
                         this.winCard[1].classList.remove('cardShow');
                         this.winCard[1].classList.add('card');
-                        this.visibility=!this.visibility;
                     }
                     this.winCard = [];
                 }, 400);
@@ -72,9 +73,14 @@ export class HttpService{
             this.searchNumber = [];
         }
         let win =document.querySelectorAll('.cardShow');
+
         if(win.length == 12){
             alert('You win');
             this.lvl=1;
         }
     }
+    newLvl(){
+        this.lvl=2;
+    }
+
 }
