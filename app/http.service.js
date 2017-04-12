@@ -17,8 +17,13 @@ var HttpService = (function () {
         this.count = 0;
         this.searchNumber = [];
         this.winCard = [];
+        // visibility: boolean;
         this.cards = [];
+        console.log('Pfuheprf');
     }
+    HttpService.prototype.ngOnChanges = function (changes) {
+        console.log('1111');
+    };
     HttpService.prototype.getCardsLvl1 = function () {
         return this.http.get('cardsLvl1.json');
     };
@@ -26,6 +31,7 @@ var HttpService = (function () {
         return this.http.get('cardsLvl2.json');
     };
     HttpService.prototype.createNewGame = function (arr) {
+        console.log(this.cards);
         var el = document.querySelectorAll('.show');
         if (this.winCard.length > 0) {
             this.winCard[0].classList.remove('flip');
@@ -56,6 +62,7 @@ var HttpService = (function () {
             this.winCard.push(el[i]);
         }
         if (this.searchNumber.length == 2) {
+            // this.visibility=!this.visibility;
             this.count++;
             if (this.searchNumber[0].card == this.searchNumber[1].card) {
                 this.winCard[0].classList.remove('flip');
@@ -81,12 +88,14 @@ var HttpService = (function () {
         }
         var win = document.querySelectorAll('.cardShow');
         if (win.length == 12) {
-            alert('You win');
+            // alert('You win');
             this.lvl = 1;
         }
+        // return this.visibility;
     };
     HttpService.prototype.newLvl = function () {
         this.lvl = 2;
+        // this.visibility=!this.visibility;
     };
     HttpService = __decorate([
         core_1.Injectable(), 

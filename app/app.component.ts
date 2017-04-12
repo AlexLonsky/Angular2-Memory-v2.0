@@ -24,21 +24,14 @@ export class AppComponent implements OnInit{
         this.lvl=this.httpService.lvl;
     }
 
-    newGame(arr) {
+    newGame(arr,lvl) {
+        console.log(this.httpService.getCardsLvl2())
+        arr=this.cards;
         this.httpService.createNewGame(arr);
+        this.count=0;
     }
     state(item,i){
-        if(this.searchNumber[0] != item){
-            this.searchNumber.push(item);
-        }
         this.httpService.clickCard(item,i);
-        if(this.searchNumber.length==2){
-            this.visibility=!this.visibility;
-            setTimeout(() => {
-                this.visibility=!this.visibility;
-                this.searchNumber=[];
-            }, 400);
-        }
         this.lvl=this.httpService.lvl;
         this.count=this.httpService.count;
     };
@@ -46,4 +39,7 @@ export class AppComponent implements OnInit{
         this.httpService.newLvl();
         this.lvl=this.httpService.lvl;
     }
+    playerClick(num){
+        this.count=num;
+}
 }

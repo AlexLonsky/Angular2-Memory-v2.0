@@ -1,7 +1,7 @@
 
 <header>
     <h1>MEMORY GAME</h1>
-    <button (click)="newGame(cards)" class="newGame">New Game </button>
+    <button (click)="newGame(cards,lvl)" class="newGame">New Game </button>
 </header>
 <div class="wrapper" [ngSwitch]="lvl">
 <div class="center" *ngSwitchCase="0" >
@@ -10,7 +10,7 @@
         <div class="back"><span class='{{item.card}} i-b'></span></div>
     </div>
 </div>
-    <lvl-second *ngSwitchCase="2"></lvl-second>
+    <lvl-second *ngSwitchCase="2" (playerClick)="playerClick($event)"></lvl-second>
     <div [ngSwitch]="lvl">
         <div class="b-popup" id="popup1" *ngSwitchCase="1">
             <div class="b-popup-content" >

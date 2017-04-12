@@ -23,22 +23,14 @@ var AppComponent = (function () {
         this.httpService.getCardsLvl1().subscribe(function (data) { return _this.cards = data.json(); });
         this.lvl = this.httpService.lvl;
     };
-    AppComponent.prototype.newGame = function (arr) {
+    AppComponent.prototype.newGame = function (arr, lvl) {
+        console.log(this.httpService.getCardsLvl2());
+        arr = this.cards;
         this.httpService.createNewGame(arr);
+        this.count = 0;
     };
     AppComponent.prototype.state = function (item, i) {
-        var _this = this;
-        if (this.searchNumber[0] != item) {
-            this.searchNumber.push(item);
-        }
         this.httpService.clickCard(item, i);
-        if (this.searchNumber.length == 2) {
-            this.visibility = !this.visibility;
-            setTimeout(function () {
-                _this.visibility = !_this.visibility;
-                _this.searchNumber = [];
-            }, 400);
-        }
         this.lvl = this.httpService.lvl;
         this.count = this.httpService.count;
     };
@@ -46,6 +38,9 @@ var AppComponent = (function () {
     AppComponent.prototype.nextLvl = function () {
         this.httpService.newLvl();
         this.lvl = this.httpService.lvl;
+    };
+    AppComponent.prototype.playerClick = function (num) {
+        this.count = num;
     };
     AppComponent = __decorate([
         core_1.Component({

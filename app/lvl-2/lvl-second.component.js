@@ -13,14 +13,26 @@ var http_service_1 = require('../http.service');
 var LvlSecond = (function () {
     function LvlSecond(httpService) {
         this.httpService = httpService;
+        this.searchNumber = [];
+        this.visibility = true;
+        this.playerClick = new core_1.EventEmitter();
     }
     LvlSecond.prototype.ngOnInit = function () {
         var _this = this;
         this.httpService.getCardsLvl2().subscribe(function (data) { return _this.cards = data.json(); });
         this.lvl = this.httpService.lvl;
     };
-    LvlSecond.prototype.state = function (item, i) {
+    LvlSecond.prototype.stateEl = function (item, i) {
+        this.httpService.clickCard(item, i);
+        this.lvl = this.httpService.lvl;
+        this.count = this.httpService.count;
+        // console.log(this.count);
+        this.playerClick.emit(this.count);
     };
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], LvlSecond.prototype, "playerClick", void 0);
     LvlSecond = __decorate([
         core_1.Component({
             selector: 'lvl-second',

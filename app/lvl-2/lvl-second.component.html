@@ -1,4 +1,4 @@
-<div  *ngFor="let item of cards; let i = index" name="item" id="item"   (click)="state(item, i)" class="card" >
+<div  *ngFor="let item of cards; let i = index" name="item" id="item"   (click)="stateEl(item, i)" class="card" >
     <div class="front "><span class="icon-magic-wand i-f"></span></div>
     <div class="back"><span class='{{item.card}} i-b'></span></div>
 </div>
