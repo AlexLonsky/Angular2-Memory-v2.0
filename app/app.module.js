@@ -10,19 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
-var http_service_1 = require('./http.service');
-var lvl_second_component_1 = require('./lvl-2/lvl-second.component');
+var new_game_component_1 = require('./new-game/new-game.component');
+var card_field_component_1 = require('./card-action/card-field.component');
+var card_item_component_1 = require('./card-action/one-card/card-item.component');
+var score_count_component_1 = require('./score/score-count.component');
+var app_service_1 = require('./shared/app.service');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, lvl_second_component_1.LvlSecond],
-            providers: [http_service_1.HttpService],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
+            declarations: [app_component_1.AppComponent, new_game_component_1.NewGame, card_field_component_1.CardField, card_item_component_1.CardItem, score_count_component_1.ScoreCount],
+            providers: [app_service_1.AppService],
             bootstrap: [app_component_1.AppComponent],
         }), 
         __metadata('design:paramtypes', [])

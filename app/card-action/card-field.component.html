@@ -1,0 +1,13 @@
+<div class="wrapper" >
+
+    <card-item *ngFor="let item of cards; let i = index" [item]="item" [numberEl]="i"  ></card-item>
+</div>
+<div *ngIf="appServise.modal==true" class="modal">
+    <div class="modalMsg">
+        <div class="modalText">
+            <h1>Поздравляем!</h1>
+            <p>Вы набрали {{appServise.counterStep}}</p>
+        </div>
+        <button (click)="appServise.modalClose()"> Next lvl</button>
+    </div>
+</div>

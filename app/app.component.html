@@ -1,32 +1,5 @@
+<new-game></new-game>
+<card-field>
 
-<header>
-    <h1>MEMORY GAME</h1>
-    <button (click)="newGame(cards,lvl)" class="newGame">New Game </button>
-</header>
-<div class="wrapper" [ngSwitch]="lvl">
-<div class="center" *ngSwitchCase="0" >
-    <div  *ngFor="let item of cards; let i = index" name="item" id="item"   (click)="state(item, i)" class="card" >
-        <div class="front "><span class="icon-magic-wand i-f"></span></div>
-        <div class="back"><span class='{{item.card}} i-b'></span></div>
-    </div>
-</div>
-    <lvl-second *ngSwitchCase="2" (playerClick)="playerClick($event)"></lvl-second>
-    <div [ngSwitch]="lvl">
-        <div class="b-popup" id="popup1" *ngSwitchCase="1">
-            <div class="b-popup-content" >
-                Go to next lvl?
-                <button (click)="nextLvl()">next lvl</button>
-            </div>
-
-        </div>
-    </div>
-</div>
-<div style="" [ngClass]="{invisible: visibility}" class="unvisible" ></div>
-<footer>
-    <div class="score"><span>{{count}}</span></div>
-    <div><h3 class="moves">Moves</h3></div>
-
-</footer>
-
-
-
+</card-field>
+<score-item  ></score-item>

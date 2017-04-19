@@ -9,20 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// import {NewGame} from './new-game/new-game.component'
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Memory Game';
+// import {Response} from '@angular/http';
+var app_service_1 = require('../shared/app.service');
+// import {Cards} from '../cards';
+var CardField = (function () {
+    function CardField(appServise) {
+        this.appServise = appServise;
+        this.cards = [];
     }
-    AppComponent = __decorate([
+    CardField.prototype.ngOnInit = function () {
+        this.appServise.initialization();
+        this.cards = this.appServise.cards;
+        console.log(this.cards);
+    };
+    CardField = __decorate([
         core_1.Component({
-            selector: 'app-game',
-            templateUrl: 'app/app.component.html',
-            styleUrls: ['app/app.component.css']
+            selector: 'card-field',
+            templateUrl: 'app/card-action/card-field.component.html',
+            styleUrls: ['app/card-action/card-field.component.css'],
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [app_service_1.AppService])
+    ], CardField);
+    return CardField;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.CardField = CardField;
+//# sourceMappingURL=card-field.component.js.map

@@ -1,3 +1,9 @@
+body{
+    margin: 0;
+}
+h1{
+    margin: 0;
+}
 @font-face {
     font-family: 'icomoon';
     src:  url('fonts/icomoon.eot?nu7vw1');
@@ -57,12 +63,3 @@
 .icon-fire:before {
     content: "\e9a9";
 }
-
-
-body{
-    text-align: center;
-    overflow: hidden;
-    color: #3e3e3e;
-    margin: 0;
-}
-

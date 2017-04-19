@@ -1,0 +1,108 @@
+{
+  "lvl1":
+  [{
+  "card":"icon-home2"
+},
+  {
+  "card":"icon-music"
+},
+  {
+  "card":"icon-pacman"
+},
+  {
+  "card":"icon-user"
+},
+  {
+  "card":"icon-wrench"
+},
+  {
+  "card":"icon-fire"
+},
+  {
+  "card":"icon-pacman"
+},
+  {
+  "card":"icon-user"
+},
+  {
+  "card":"icon-wrench"
+},
+  {
+  "card":"icon-fire"
+},
+  {
+  "card":"icon-home2"
+},
+  {
+  "card":"icon-music"
+}],
+  "lvl2":
+  [{
+    "card":"icon-home2"
+  }
+    ],
+  "lvl2": [{
+    "card":"icon-home2"
+  },
+    {
+      "card":"icon-music"
+    },
+    {
+      "card":"icon-pacman"
+    },
+    {
+      "card":"icon-user"
+    },
+    {
+      "card":"icon-wrench"
+    },
+    {
+      "card":"icon-fire"
+    },
+    {
+      "card":"icon-pacman"
+    },
+    {
+      "card":"icon-user"
+    },
+    {
+      "card":"icon-wrench"
+    },
+    {
+      "card":"icon-fire"
+    },
+    {
+      "card":"icon-home2"
+    },
+    {
+      "card":"icon-music"
+    },
+    {
+      "card":"icon-eyedropper"
+    },
+    {
+      "card":"icon-eyedropper"
+    },
+    {
+      "card":"icon-hour-glass"
+    },
+    {
+      "card":"icon-hour-glass"
+    },
+    {
+      "card":"icon-cart"
+    },
+    {
+      "card":"icon-cart"
+    },{
+      "card":"icon-rocket"
+    },
+    {
+      "card":"icon-rocket"
+    }
+    ]
+
+
+}
+
+

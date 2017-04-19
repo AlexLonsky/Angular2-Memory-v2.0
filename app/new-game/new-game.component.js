@@ -9,20 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// import {NewGame} from './new-game/new-game.component'
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Memory Game';
+var app_service_1 = require('../shared/app.service');
+var NewGame = (function () {
+    function NewGame(appServise) {
+        this.appServise = appServise;
     }
-    AppComponent = __decorate([
+    NewGame.prototype.newGame = function () {
+        this.appServise.createNewGame();
+    };
+    NewGame = __decorate([
         core_1.Component({
-            selector: 'app-game',
-            templateUrl: 'app/app.component.html',
-            styleUrls: ['app/app.component.css']
+            selector: 'new-game',
+            templateUrl: 'app/new-game/new-game.component.html',
+            styleUrls: ['app/new-game/new-game.component.css']
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [app_service_1.AppService])
+    ], NewGame);
+    return NewGame;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.NewGame = NewGame;
+//# sourceMappingURL=new-game.component.js.map

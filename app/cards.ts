@@ -1,3 +1,4 @@
 export class Cards{
-    cards:string;
+    card:string;
+    flipped:boolean;
 }

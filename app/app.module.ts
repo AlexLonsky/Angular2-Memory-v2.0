@@ -1,16 +1,18 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
-import {HttpService} from './http.service';
-import {LvlSecond} from './lvl-2/lvl-second.component'
+import {NewGame} from './new-game/new-game.component';
+import {CardField} from './card-action/card-field.component';
+import {CardItem} from './card-action/one-card/card-item.component';
+import {ScoreCount} from './score/score-count.component';
+import {AppService} from './shared/app.service';
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpModule],
-    declarations: [AppComponent, LvlSecond ],
-    providers:[HttpService],
+    imports: [BrowserModule, HttpModule],
+    declarations: [AppComponent, NewGame,CardField,CardItem,ScoreCount ],
+    providers:[AppService],
     bootstrap: [AppComponent],
 
 })
